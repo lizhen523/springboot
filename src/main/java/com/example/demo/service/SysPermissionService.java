@@ -8,5 +8,5 @@ import java.util.List;
  * @Date 2018-06-11 17:10
  */
 public interface SysPermissionService {
-    public List<String> selectPermissionByUserId(long userId) ;
+    List<String> selectPermissionByUserId(long userId) ;
 }

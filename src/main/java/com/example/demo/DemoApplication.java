@@ -1,7 +1,5 @@
 package com.example.demo;
 
-//import org.mybatis.spring.annotation.MapperScan;
-
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
@@ -17,7 +15,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableCaching
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
-public class DemoApplication implements WebMvcConfigurer {
+public  class DemoApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

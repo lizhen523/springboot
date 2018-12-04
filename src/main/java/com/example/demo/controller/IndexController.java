@@ -1,15 +1,17 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.SysUser;
+import org.apache.shiro.SecurityUtils;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class IndexController {
     @GetMapping("/index")
-    public ModelAndView index(){
-        ModelAndView view = new ModelAndView("index");
-        view.addObject("userName", "蝈蝈");
-        return view;
+    public String index(Model model){
+        SysUser sysUser = (SysUser) SecurityUtils.getSubject().getPrincipal();
+        model.addAttribute("userName", sysUser.getFullName());
+        return "index";
     }
 }

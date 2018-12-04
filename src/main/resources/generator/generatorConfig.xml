@@ -8,6 +8,9 @@
     <context id="MySql" defaultModelType="flat">
         <!-- 生成的POJO实现java.io.Serializable接口 -->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.example.demo.util.MyMapper"/>
+        </plugin>
 
         <!--注释-->
         <commentGenerator>
@@ -35,12 +38,21 @@
                              type="XMLMAPPER"></javaClientGenerator>
 
         <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符 -->
-        <table tableName="tbl_user">
-            <!-- 是否只生成POJO对象 -->
+        <!--<table tableName="tbl_user">
+            &lt;!&ndash; 是否只生成POJO对象 &ndash;&gt;
             <property name="modelOnly" value="false"/>
-            <!-- 数据库中表名有时我们都会带个前缀，而实体又不想带前缀，这个配置可以把实体的前缀去掉 -->
+            &lt;!&ndash; 数据库中表名有时我们都会带个前缀，而实体又不想带前缀，这个配置可以把实体的前缀去掉 &ndash;&gt;
             <domainObjectRenamingRule searchString="^Tbl" replaceString=""/>
 
+        </table>-->
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" selectByExampleQueryId="false">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <!--&lt;!&ndash;oracle 配置&ndash;&gt;
+            <generatedKey column="id" sqlStatement="select seq_index_score_rel_qual.nextval from dual"
+            identity="false" type="pre"/>-->
         </table>
     </context>
 </generatorConfiguration>

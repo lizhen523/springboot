@@ -8,5 +8,5 @@ import com.example.demo.model.SysUser;
  * @Date 2018-06-11 17:10
  */
 public interface SysUserService {
-    public SysUser findByUserName(String userName);
+    SysUser findByUserName(String userName);
 }
