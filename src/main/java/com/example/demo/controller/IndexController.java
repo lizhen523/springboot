@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class IndexController {
+   // @RequestMapping(value = {"/", "/index"})
     @GetMapping("/index")
     public String index(Model model){
         SysUser sysUser = (SysUser) SecurityUtils.getSubject().getPrincipal();
