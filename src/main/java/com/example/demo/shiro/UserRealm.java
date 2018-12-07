@@ -11,6 +11,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,10 +21,15 @@ public class UserRealm extends AuthorizingRealm {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRealm.class);
 
     @Resource
+    @Lazy
     private SysUserService sysUserService;
 
-    @Resource
+    @Autowired
+    @Lazy
     private SysPermissionService sysPermissionService;
+
+
+
 
     /**
      * 授权
